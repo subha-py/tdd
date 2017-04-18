@@ -1,0 +1,25 @@
+# path - /etc/systemd/system/gunicorn-{sitename}.service
+
+[Unit]
+Description=Gunicorn server for SITENAME
+
+[Service]
+Restart=on-failure
+User=elspeth
+WorkingDirectory=/home/elspeth/sites/SITENAME/source
+ExecStart=/home/elspeth/sites/SITENAME/virtualenv/bin/gunicorn \
+    --bind unix:/tmp/SITENAME.socket \
+    superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+# Check the Systemd logs for using sudo journalctl -u gunicorn-superlists-staging.ottg.eu
+
+# You can ask Systemd to check the validity of your service configuration: systemd-analyze verify /path/to/my.service
+
+# Remember to restart both services whenever you make changes.
+
+# If you make changes to the Systemd config file, you need to run daemon-reload before systemctl restart to see the effect of your changes.
