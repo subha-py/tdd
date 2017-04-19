@@ -19,6 +19,7 @@ class HomePageTest(TestCase):
         new_list = List.objects.first()
         self.assertRedirects(response, '/lists/{id}/'.format(id=new_list.id))
 
+
 class ListViewTest(TestCase):
     def test_displays_only_items_for_that_list(self):
         correct_list = List.objects.create()
@@ -46,8 +47,8 @@ class ListViewTest(TestCase):
         response = self.client.get('/lists/{id}/'.format(id=correct_list.id))
         self.assertEqual(response.context['list'], correct_list)
 
-class ListAndItemModelTest(TestCase):
 
+class ListAndItemModelTest(TestCase):
     def test_saving_and_retrieving_items(self):
         list_ = List()
         list_.save()
