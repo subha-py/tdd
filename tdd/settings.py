@@ -25,7 +25,7 @@ SECRET_KEY = '_*uu90g+_+coa+q$ffzj_zph(2tc%mq=oyfa@824p!o4ol_646'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
-ALLOWED_HOSTS = ['staging.todo.cf']
+ALLOWED_HOSTS = ['staging.todo.cf', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -126,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+# STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'subha4exam@gmail.com'
