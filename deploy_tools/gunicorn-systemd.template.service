@@ -38,3 +38,22 @@ This is a change due to login
 #    --access-logfile ../access.log \
 #    --error-logfile ../error.log \
 #    superlists.wsgi:application
+
+
+with logging in settings.py be:
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+        },
+    },
+    'root': {'level': 'INFO'},
+}
