@@ -23,8 +23,18 @@ WantedBy=multi-user.target
 # Remember to restart both services whenever you make changes.
 
 # If you make changes to the Systemd config file, you need to run daemon-reload before systemctl restart to see the effect of your changes.
-
+# sudo systemctl daemon-reload
+# sudo systemctl restart gunicorn-superlists-staging.ottg.eu
 
 # sed "s/SITENAME/superlists.ottg.eu/g" \
 #    source/deploy_tools/gunicorn-systemd.template.service \
 #    | sudo tee /etc/systemd/system/gunicorn-superlists.ottg.eu.service
+
+
+This is a change due to login
+#ExecStart=/home/elspeth/sites/superlists-staging.ottg.eu/virtualenv/bin/gunicorn \
+#    --bind unix:/tmp/superlists-staging.ottg.eu.socket \
+#    --capture-output \
+#    --access-logfile ../access.log \
+#    --error-logfile ../error.log \
+#    superlists.wsgi:application
