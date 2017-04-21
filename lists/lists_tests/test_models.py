@@ -78,6 +78,7 @@ class ListModelTest(TestCase):
     def test_list_owner_is_optional(self):
         List().full_clean()  # should not raise
 
+    # for push
     def test_create_returns_new_list_object(self):
         returned = List.create_new(first_item_text='new item text')
         new_list = List.objects.first()
